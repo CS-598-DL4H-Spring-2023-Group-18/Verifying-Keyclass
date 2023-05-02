@@ -1,0 +1,61 @@
+activation: torch.nn.Sigmoid()
+average: weighted
+base_encoder: paraphrase-mpnet-base-v2
+criterion: torch.nn.CrossEntropyLoss(reduction='none')
+data_path: /content/Verifying-Keyclass/KeyClass/scripts/data/ # Change it to base path/KeyClass/....
+dataset: mimic
+device: cuda
+end_model_batch_size: 128 # Make 128 in Final run
+end_model_epochs: 20
+end_model_lr: 1e-4
+end_model_patience: 3
+end_model_weight_decay: 1e-4
+h_sizes:
+- 768
+- 1
+label_model: data_programming
+label_model_lr: 0.01
+label_model_n_epochs: 100
+max_num: 500
+min_df: 0.001
+model_path: ../models/mimic/
+n_bootstrap: 100
+n_classes: 1
+n_jobs: 10
+ngram_range: !!python/tuple
+- 1
+- 3
+normalize_embeddings: false
+preds_path: ../results/mimic/
+q_update_interval: 50
+results_path: ../results/mimic/
+self_train_batch_size: 128
+self_train_lr: 1e-6
+self_train_patience: 8
+self_train_thresh: 1-2e-3
+self_train_weight_decay: 1e-4
+show_progress_bar: true
+target_00: infections, parasitic & also infect, appear infect, bacteri infect, bacteria patient, chronic infect, concern infect, concern infecti, concern wound infect, develop infect, discuss infecti, due infecti, experi fever, experi follow fever, fever infect, fever infecti, followup infecti, found infect, fungal infect, fungal rash, infect appear, infect chronic, infect clinic, infect concern, infect due pneumophila, infect fever, infect patient, infect present, infect skin, infect wound, infect wound site, infecti, infectionsepsi, like infect, like infecti, may infecti, medic infect, pathogen, patient infect, periorbit ecchymosi, seen infecti, skin infect, suggest infecti, tender drainag fever, tract infect, tract infect also, tract infect pleas, treat antibiot infect, viral infect, well infecti, wound infect
+target_01: neoplasms
+target_02: endocrine, nutritional, metabolic
+target_03: blood, blood-forming organs
+target_04: mental disorders
+target_05: nervous system
+target_06: sense organs
+target_07: circulatory system
+target_08: respiratory system
+target_09: digestive system
+target_10: genitourinary system
+target_11: pregnancy, childbirth complications
+target_12: skin, subcutaneous tissue
+target_13: musculoskeletal system, connective tissue
+target_14: congenital anomalies
+target_15: perinatal period conditions
+target_16: injury and poisoning
+target_17: external causes of injury
+target_18: supplementary
+topk: 50
+use_custom_encoder: false
+use_noise_aware_loss: true
+n_class_being_tested: 0
+size_of_dataset: 100000
